@@ -1,4 +1,4 @@
-# MFA Authentication Rules and Enforcement Policies
+# MFA Authentication Rules
 
 
 ## Objective  
