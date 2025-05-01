@@ -1,7 +1,7 @@
 # MFA Solution Comparison
 
 ## Objective  
-This document compares several widely used MFA solutions—**Duo Security**, **Google Authenticator**, and **Microsoft Authenticator**—in terms of **features**, **security strength**, **usability**, and **implementation complexity**. These tools are commonly used in web and system authentication, including integrations with web apps like Flask or device-level protection in IoT environments.
+This document compares several widely used MFA solutions, **Duo Security**, **Google Authenticator**, and **Microsoft Authenticator**, in terms of **features**, **security strength**, **usability**, and **implementation complexity**. These tools are commonly used in web and system authentication, including integrations with web apps like Flask or device-level protection in IoT environments.
 
 ---
 
@@ -14,25 +14,25 @@ Duo is a cloud-based multi-factor authentication service developed by Cisco. It 
 - **Usability:** Very user-friendly. Push notifications are fast, and the app is widely supported  
 - **Integration:** Easily integrates with web applications using APIs, SDKs, and out-of-the-box modules (e.g., Flask, SSH, VPNs)  
 - **Strengths:** Push-based MFA, central management portal, flexible policy creation  
-- **Weaknesses:** Internet connection required for push; may require more setup for custom apps
+- **Weaknesses:** Requires internet access for push and more complex API setup for smaller projects
 
 ### Google Authenticator  
 Google Authenticator is a **TOTP-based MFA app** that runs on Android and iOS devices. It generates time-based codes every 30 seconds.
 
-- **Security:** Good—codes are generated locally, so there’s no data sent across the network  
-- **Usability:** Requires the user to manually enter a 6-digit code during login. No push or biometric support  
-- **Integration:** Can be used with any system that supports TOTP; very lightweight but lacks an API or admin portal  
-- **Strengths:** Simple, offline-compatible, free  
-- **Weaknesses:** No device management, user tracking, or centralized control
+- **Security:** Good—codes are generated locally, so there’s no network transmission involved  
+- **Usability:** Requires users to manually enter a 6-digit code during login; simple and reliable  
+- **Integration:** Works with any system that supports TOTP, including Python/Flask apps via packages like `pyotp`  
+- **Strengths:** Lightweight, secure, open standard, and doesn’t require a user account  
+- **Weaknesses:** No centralized dashboard or logging; difficult to recover if the device is lost
 
 ### Microsoft Authenticator  
-Microsoft Authenticator is similar to Duo, offering both **TOTP and push notifications**. It is deeply integrated with Microsoft Azure and Office 365 products.
+Microsoft Authenticator provides both **TOTP and push notifications**, and is designed to work especially well with Microsoft products.
 
-- **Security:** Strong, especially in Microsoft environments. Supports push, TOTP, and biometric-based access  
-- **Usability:** Easy to use in Microsoft ecosystems; push approval is fast  
-- **Integration:** Excellent with Microsoft products; more complex for non-Microsoft environments  
-- **Strengths:** Biometric support, app-lock, backup to the cloud  
-- **Weaknesses:** Limited flexibility outside the Microsoft ecosystem
+- **Security:** Strong, especially in Microsoft ecosystems. Supports push, TOTP, and biometric authentication  
+- **Usability:** Smooth user experience in Microsoft environments; simple approval process  
+- **Integration:** Best for use with Azure and Office 365 environments; may require more effort for non-Microsoft apps  
+- **Strengths:** App-lock, cloud backup, and biometric support  
+- **Weaknesses:** Limited control and support when not used with Microsoft platforms
 
 ---
 
@@ -48,12 +48,13 @@ Microsoft Authenticator is similar to Duo, offering both **TOTP and push notific
 
 ## Group Decision
 
-After reviewing each option, our group decided to **use Duo Security** for our MFA implementation. Here’s why:
+After comparing all options, our group decided to use **Google Authenticator** for our MFA implementation. Here’s why:
 
-- **Duo supports both push-based and TOTP authentication**, offering more flexibility and stronger protection than Google Authenticator.
-- It provides a **central management dashboard**, which allows us to **monitor authentication logs**, adjust security policies, and manage enrolled devices—features that are important for testing and evaluation in our project.
-- While Google Authenticator is easier to set up, it lacks any form of administrative control or audit logging, which we considered essential.
-- Microsoft Authenticator was a strong option, but since our project isn’t built within the Microsoft ecosystem (like Azure), integration would be more difficult.
+- Our system is built using **Flask**, and Google Authenticator integrates easily with **TOTP-based Python libraries** like `pyotp`, making implementation straightforward.
+- Since this is a student project, we valued a **lightweight and simple solution** that doesn’t require setting up external services or managing a cloud dashboard.
+- Google Authenticator is **offline-capable**, removing dependency on network connectivity or vendor APIs—ideal for testing in a virtual machine or isolated environment.
+- While it lacks centralized management and push functionality, the simplicity makes it **easier to focus on the authentication flow itself** without added complexity.
 
-We believe Duo offers the best balance of **security, control, and real-world applicability**, especially for testing MFA in environments like Flask applications or IoT access portals.
+For these reasons, Google Authenticator aligned best with our goals for ease of implementation, sufficient security, and suitability for an educational project environment.
+
 
