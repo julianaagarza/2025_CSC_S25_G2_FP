@@ -2,7 +2,7 @@
 
 
 ## Objective  
-This document explains the rationale behind selecting our test environment and hardware setup for implementing multi-factor authentication (MFA) in an IoT-based security system. It covers our decision to use an **on-premises Raspberry Pi with a camera module** and provides reasoning that aligns with both course concepts and project goals.
+This document explains the rationale behind selecting our test environment and hardware setup for implementing multi-factor authentication (MFA) in an IoT-based security system. It covers our decision to use an Raspberry Pi with a camera module and provides reasoning that aligns with both course concepts and project goals.
 
 ---
 
@@ -35,11 +35,11 @@ We chose to **host the project on a Raspberry Pi with a connected camera**, oper
 - **Reflects Course Concepts:** The project incorporates multiple topics covered in the course, including endpoint security, authentication layers, threat modeling, and device hardening.
 - **Simulates a Real-World Use Case:** Cameras are widely used in IoT security systems. Access control to camera feeds is critical in smart homes, industrial settings, and even school security.
 - **Hands-On Security Implementation:** The Raspberry Pi allows full control over the OS and network, letting us directly implement firewalls, authentication, and encryption protocols.
-- **Supports Lightweight Web Application:** We are able to host a Flask-based web interface on the Pi, where users must authenticate via password and TOTP to access the camera.
+- **Supports Lightweight Web Application:** We are able to host a Flask-based web interface on the Pi, where users must authenticate via password and QR code to access the camera.
 - **Cost-Effective and Flexible:** The Raspberry Pi is affordable, reusable, and capable of supporting Python, Flask, and OpenCV—all tools relevant to our skillset and this course.
 
 ---
 
 ## Conclusion
 
-By choosing an **on-premises Raspberry Pi with a camera**, we created a realistic IoT testing environment that mirrors real-world scenarios while remaining appropriate for an academic project. This setup allows us to implement, monitor, and evaluate MFA in a way that supports both academic learning and practical cybersecurity application.
+By choosing an Raspberry Pi with a camera, we created a realistic IoT testing environment that mirrors real-world scenarios while remaining appropriate for an academic project. This setup allows us to implement, monitor, and evaluate MFA in a way that supports both academic learning and practical cybersecurity application.
