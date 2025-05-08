@@ -1,8 +1,8 @@
-# Research on Various MFA Methods: Usability vs. Security
+# Research on Various MFA Methods
 
 
 ## Objective  
-This document outlines the **advantages and disadvantages** of common multi-factor authentication (MFA) methods. Each method is evaluated based on its **usability** and **security**, helping determine which is best suited for a project where ease of use, secure implementation, and realistic deployment are all factors.
+This document outlines the advantages and disadvantages of common multi-factor authentication (MFA) methods. Each method is evaluated based on its usability and security, helping determine which is best suited for a project where ease of use, secure implementation, and realistic deployment are all factors.
 
 ---
 
@@ -101,6 +101,5 @@ After evaluating each method, our group prioritized a solution that was:
 **Recommendation and Implementation:**  
 We selected **Google Authenticator** for our MFA implementation due to its balance of simplicity and security. It uses the TOTP standard, works offline, and does not rely on third-party APIs or push services—making it ideal for resource-constrained environments like IoT.
 
-As part of our project, we **implemented QR code-based TOTP authentication using Google Authenticator to secure access to a camera system running on a Raspberry Pi**. The QR code is scanned during enrollment and links the user’s app to their account. Upon successful login and OTP verification through Flask, the user is granted access to the camera’s image or live feed.
+As part of our project, we implemented QR code-based TOTP authentication using Google Authenticator to secure access to a camera system running on a Raspberry Pi. The QR code is scanned during enrollment and links the user’s app to their account. Upon successful login and OTP verification through Flask, the user is granted access to the camera’s image or live feed.
 
-This approach keeps our solution lightweight, secure, and well-suited for real-world IoT deployment scenarios where usability and minimal resource impact are critical.
